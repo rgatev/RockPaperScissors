@@ -14,8 +14,7 @@ function getComputerChoice() {
 }
 console.log(getComputerChoice());
 
-alert("Enter 0 for Rock, 1 for paper, 2 for scissors");
-let input = parseInt(prompt());
+let input = parseInt(prompt("Enter 0 for Rock, 1 for paper, 2 for scissors"));
 let userOutput = "";
 
 // human choice input func
@@ -32,30 +31,43 @@ function getHumanChoice() {
 }
 console.log(getHumanChoice());
 
-const humanScore = 0;
-const computerScore = 0;
 let result = "";
 
-function playRound(humanChoice, computerChoice) {
-  if (computerOutput === userOutput) {
-    result = "draw";
-  } else if (computerOutput === "Rock" && userOutput === "Scissors") {
-    result = "Computer wins! Rock beats Scissors";
-  } else if (computerOutput === "Paper" && userOutput === "Rock") {
-    result = "Computer win! Paper beats rock";
-  } else if (computerOutput === "Scissors" && userOutput === "Paper") {
-    result = "Computer win! Scissors beats Scissors";
-  } else {
-    result = "User wins! ";
+// play round out of 5
+
+function playGame() {
+  let humanScore = 0;
+  let computerScore = 0;
+
+  for (let playGame = 0; playGame < 5; playGame++) {
+    let input = parseInt(
+      prompt("Enter 0 for Rock, 1 for paper, 2 for scissors")
+    );
+    alert(result);
+    1;
+    console.log(playRound());
+
+    console.log("Human: " + humanScore);
+    console.log("Cpu: " + computerScore);
+
+    function playRound(humanChoice, computerChoice) {
+      if (computerOutput === userOutput) {
+        result = "draw";
+      } else if (computerOutput === "Rock" && userOutput === "Scissors") {
+        result = "Computer wins! Rock beats Scissors";
+        computerScore++;
+      } else if (computerOutput === "Paper" && userOutput === "Rock") {
+        result = "Computer wins! Paper beats rock";
+        computerScore++;
+      } else if (computerOutput === "Scissors" && userOutput === "Paper") {
+        result = "Computer wins! Scissors beats Paper";
+        computerScore++;
+      } else {
+        result = "User wins! ";
+        humanScore++;
+      }
+      return result;
+    }
   }
-  return result;
 }
-
-console.log(playRound());
-
-alert(result);
-
-// const humanSelection = getHumanChoice();
-// const computerSelection = getComputerChoice();
-
-// playRound(humanSelection, computerSelection);
+playGame();
