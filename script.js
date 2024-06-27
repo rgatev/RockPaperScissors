@@ -1,43 +1,60 @@
+// computer choice output func
+let computerOutput = "";
+
 function getComputerChoice() {
-  const randomValue = Math.random() * 1;
-  if (randomValue < 1 / 3) {
-    console.log("rock");
-  } else if (randomValue < 2 / 3) {
-    console.log("paper");
+  const randomValue = Math.floor(Math.random() * 3);
+  if (randomValue < 1) {
+    computerOutput = "Rock";
+  } else if (randomValue < 2) {
+    computerOutput = "Paper";
   } else {
-    console.log("scissors");
+    computerOutput = "Scissors";
   }
-  return randomValue;
+  return computerOutput;
 }
 console.log(getComputerChoice());
 
+alert("Enter 0 for Rock, 1 for paper, 2 for scissors");
 let input = parseInt(prompt());
+let userOutput = "";
 
+// human choice input func
 function getHumanChoice() {
-  input *= Math.random();
-  if (input < 1 / 3) {
-    console.log("rock");
-  } else if (input < 2 / 3) {
-    console.log("paper");
+  // input = Math.floor(Math.random() * 3);
+  if (input < 1) {
+    userOutput = "Rock";
+  } else if (input < 2) {
+    userOutput = "Paper";
   } else {
-    console.log("scissors");
+    userOutput = "Scissors";
   }
-  return input;
+  return userOutput;
 }
 console.log(getHumanChoice());
 
 const humanScore = 0;
 const computerScore = 0;
+let result = "";
 
-// function playRound(humanChoice, computerChoice) {
-//   let string = humanChoice.toUpperCase() === computerChoice.toLowerCase();
+function playRound(humanChoice, computerChoice) {
+  if (computerOutput === userOutput) {
+    result = "draw";
+  } else if (computerOutput === "Rock" && userOutput === "Scissors") {
+    result = "Computer wins! Rock beats Scissors";
+  } else if (computerOutput === "Paper" && userOutput === "Rock") {
+    result = "Computer win! Paper beats rock";
+  } else if (computerOutput === "Scissors" && userOutput === "Paper") {
+    result = "Computer win! Scissors beats Scissors";
+  } else {
+    result = "User wins! ";
+  }
+  return result;
+}
 
-//   if (getComputerChoice === getHumanChoice) {
-//     console.log("draw");
-//   } else if (getComputerChoice < getHumanChoice) {
-//     console.log("You lose! Paper beats Rock");
-//   }
-// }
+console.log(playRound());
+
+alert(result);
+
 // const humanSelection = getHumanChoice();
 // const computerSelection = getComputerChoice();
 
