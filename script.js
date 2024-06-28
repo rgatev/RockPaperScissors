@@ -1,4 +1,5 @@
 // computer choice output func
+let input = parseInt(prompt("Enter 0 for Rock, 1 for paper, 2 for scissors"));
 let computerOutput = "";
 
 function getComputerChoice() {
@@ -12,14 +13,12 @@ function getComputerChoice() {
   }
   return computerOutput;
 }
-console.log(getComputerChoice());
+// console.log(getComputerChoice());
 
-let input = parseInt(prompt("Enter 0 for Rock, 1 for paper, 2 for scissors"));
 let userOutput = "";
 
 // human choice input func
 function getHumanChoice() {
-  // input = Math.floor(Math.random() * 3);
   if (input < 1) {
     userOutput = "Rock";
   } else if (input < 2) {
@@ -29,7 +28,7 @@ function getHumanChoice() {
   }
   return userOutput;
 }
-console.log(getHumanChoice());
+// console.log(getHumanChoice());
 
 let result = "";
 
@@ -38,36 +37,43 @@ let result = "";
 function playGame() {
   let humanScore = 0;
   let computerScore = 0;
-
   for (let playGame = 0; playGame < 5; playGame++) {
-    let input = parseInt(
-      prompt("Enter 0 for Rock, 1 for paper, 2 for scissors")
-    );
-    alert(result);
-    1;
-    console.log(playRound());
-
-    console.log("Human: " + humanScore);
+    console.log(`Round ${playGame + 1}:`);
+    console.log(getHumanChoice());
+    console.log(getComputerChoice());
+    console.log(playRound(result));
+    console.log(`Human: ${humanScore}`);
     console.log("Cpu: " + computerScore);
-
-    function playRound(humanChoice, computerChoice) {
-      if (computerOutput === userOutput) {
-        result = "draw";
-      } else if (computerOutput === "Rock" && userOutput === "Scissors") {
-        result = "Computer wins! Rock beats Scissors";
-        computerScore++;
-      } else if (computerOutput === "Paper" && userOutput === "Rock") {
-        result = "Computer wins! Paper beats rock";
-        computerScore++;
-      } else if (computerOutput === "Scissors" && userOutput === "Paper") {
-        result = "Computer wins! Scissors beats Paper";
-        computerScore++;
-      } else {
-        result = "User wins! ";
-        humanScore++;
-      }
-      return result;
+    console.log("------------");
+    input = parseInt(prompt("Enter 0 for Rock, 1 for paper, 2 for scissors"));
+    console.log("\n");
+  }
+  function playRound() {
+    if (computerOutput === userOutput) {
+      result = "draw";
+    } else if (computerOutput === "Rock" && userOutput === "Scissors") {
+      result = "Computer wins! Rock beats Scissors";
+      computerScore++;
+    } else if (computerOutput === "Paper" && userOutput === "Rock") {
+      result = "Computer wins! Paper beats rock";
+      computerScore++;
+    } else if (computerOutput === "Scissors" && userOutput === "Paper") {
+      result = "Computer wins! Scissors beats Paper";
+      computerScore++;
+    } else {
+      result = "User wins! ";
+      humanScore++;
     }
+    return result;
+    1;
+  }
+  if (humanScore > computerScore) {
+    console.log("You win !!!");
+  } else if (humanScore == computerScore) {
+    console.log("Tie");
+  } else {
+    console.log("You lose!");
   }
 }
+
 playGame();
