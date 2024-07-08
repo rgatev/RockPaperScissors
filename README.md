@@ -1,2 +1,3 @@
 # RockPaperScissors
  
+Console version
