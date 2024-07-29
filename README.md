@@ -1,3 +1,3 @@
 # RockPaperScissors
- 
-Console version
+
+rps-revisited with minimal UI

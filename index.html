@@ -4,7 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
   </head>
-  <body></body>
-  <script src="script.js"></script>
+
+  <body>
+    <div class="container">
+      <img src="assets/996598.webp" alt="regular show rock-paper-scissors" />
+
+      <p>Please select your choice!</p>
+
+      <div class="buttons">
+        <button id="btn1">Rock</button>
+        <button id="btn2">Paper</button>
+        <button id="btn3">Scissors</button>
+        <div class="results">
+          <div class="displayUser"></div>
+          <div class="displayCPU"></div>
+          <div class="result"></div>
+        </div>
+      </div>
+      <div class="score">
+        <p class="humanScore"></p>
+        <p class="cpuScore"></p>
+      </div>
+      <p class="final"></p>
+    </div>
+  </body>
 </html>
