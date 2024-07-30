@@ -14,14 +14,30 @@ function getComputerChoice() {
   return computerOutput;
 }
 
-let userOutput = "";
-
 function playGame() {
   let humanScore = 0;
   let computerScore = 0;
 
+  // function to check who wins
+
+  function checkWinner() {
+    if (humanScore == 5) {
+      final.innerHTML = "You win!<br>Game Over!";
+      return true;
+    } else if (computerScore == 5) {
+      final.innerHTML = "You lose!<br>Game Over!";
+      return true;
+    }
+    return false;
+  }
+
+  // btn event listeners section
+
   btn1.addEventListener("click", function (e) {
     if (e.target && e.target.id === "btn1") {
+      if (humanScore >= 0 || computerScore >= 0) {
+        final.textContent = "";
+      }
       const humanChoice = "Rock";
       const computerChoice = getComputerChoice();
       const playRoundResult = playRound(humanChoice, computerChoice);
@@ -30,22 +46,21 @@ function playGame() {
       roundResult.textContent = playRoundResult;
       userScore.textContent = `Your score: ${humanScore}`;
       cpuScore.textContent = `CPU score: ${computerScore}`;
+      checkWinner();
 
-      if (humanScore == 5) {
-        final.textContent = "You win !" + "\n" + "Game over";
-      } else if (computerScore == 5) {
-        final.textContent = "You lose !" + "\n" + "Game over";
+      const isGameOver = checkWinner();
+      if (isGameOver) {
+        humanScore = 0;
+        computerScore = 0;
       }
-
-      console.log(displayText.textContent);
-      console.log(`CPU picked: ${computerChoice}`);
-      console.log(playRoundResult);
-      console.log("\n");
     }
   });
 
   btn2.addEventListener("click", function (e) {
     if (e.target && e.target.id === "btn2") {
+      if (humanScore >= 0 || computerScore >= 0) {
+        final.textContent = "";
+      }
       const humanChoice = "Paper";
       const computerChoice = getComputerChoice();
       const playRoundResult = playRound(humanChoice, computerChoice);
@@ -54,24 +69,21 @@ function playGame() {
       roundResult.textContent = playRoundResult;
       userScore.textContent = `Your score: ${humanScore}`;
       cpuScore.textContent = `CPU score: ${computerScore}`;
+      checkWinner();
 
-      if (humanScore == 5) {
-        final.textContent = "You win !" + "\n" + "Game over";
-      } else if (computerScore == 5) {
-        final.textContent = "You lose !" + "\n" + "Game over";
+      const isGameOver = checkWinner();
+      if (isGameOver) {
+        humanScore = 0;
+        computerScore = 0;
       }
-
-      console.log(displayText.textContent);
-      console.log(`CPU picked: ${computerChoice}`);
-      console.log(result);
-      console.log(`Your score = ${humanScore}`);
-      console.log(`CPU score = ${computerScore}`);
-      console.log("\n");
     }
   });
 
   btn3.addEventListener("click", function (e) {
     if (e.target && e.target.id === "btn3") {
+      if (humanScore >= 0 || computerScore >= 0) {
+        final.textContent = "";
+      }
       const humanChoice = "Scissors";
       const computerChoice = getComputerChoice();
       const playRoundResult = playRound(humanChoice, computerChoice);
@@ -80,17 +92,13 @@ function playGame() {
       roundResult.textContent = playRoundResult;
       userScore.textContent = `Your score: ${humanScore}`;
       cpuScore.textContent = `CPU score: ${computerScore}`;
+      checkWinner();
 
-      if (humanScore == 5) {
-        final.textContent = "You win !" + "\n" + "Game over";
-      } else if (computerScore == 5) {
-        final.textContent = "You lose !" + "\n" + "Game over";
+      const isGameOver = checkWinner();
+      if (isGameOver) {
+        humanScore = 0;
+        computerScore = 0;
       }
-
-      console.log(displayText.textContent);
-      console.log(`CPU picked: ${computerChoice}`);
-      console.log(result);
-      console.log("\n");
     }
   });
 
